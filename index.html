@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Interactive card details form</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    <!-- Font and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/598f4dcb3d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="side-color">
+        <div class="card card-front">
+          <div class="card-image"></div>
+          <div class="card-infos">
+            <h3 id="card-number">0000 0000 0000 0000</h3>
+            <div class="group">
+              <h4 id="card-name">Jane Appleseed</h4>
+              <h4 id="card-date">00/00</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card card-back">
+          <h3 id="card-cvc">000</h3>
+        </div>
+      </div>
+      <div class="content">
+        <form>
+          <div class="form-group">
+            <label for="cardName">cardhold name</label>
+            <input
+              type="text"
+              id="cardName"
+              placeholder="e.g. Jane Appleseed"
+            />
+            <span class="errorMessage"></span>
+          </div>
+          <div class="form-group">
+            <label for="cardNumber">card number</label>
+            <input
+              type="text"
+              id="cardNumber"
+              placeholder="e.g. 1234 5678 9123 0000"
+              maxlength="16"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            />
+            <span class="errorMessage">Wrong format, numbers only</span>
+          </div>
+          <div class="special-form-group">
+            <div class="date-section">
+              <label for="cardMonth">exp. date(mm/yy)</label>
+              <div class="date-group">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="cardMonth"
+                    placeholder="MM"
+                    maxlength="2"
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  />
+                  <span class="errorMessage">Wrong format, numbers only</span>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    placeholder="YY"
+                    id="cardYear"
+                    maxlength="2"
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  />
+                  <span class="errorMessage">Wrong format, numbers only</span>
+                </div>
+              </div>
+            </div>
+            <div class="cvc-section">
+              <label for="cardCvc">cvc</label>
+              <input
+                type="text"
+                id="cardCvc"
+                placeholder="e.g. 123"
+                maxlength="3"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              />
+              <span class="errorMessage">Wrong format, numbers only</span>
+            </div>
+          </div>
+          <button type="button" id="formBtn">Confirm</button>
+          <div class="on-complete-content">
+            <div class="complete-content-info">
+              <img src="./images/icon-complete.svg" alt="Complete Icon" />
+              <h3>thank you!</h3>
+              <h4>We've added your card details</h4>
+            </div>
+            <a href="index.html">To the main page</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
